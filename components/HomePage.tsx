@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import { FaStar } from 'react-icons/fa6';
-import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
-import { HomeSlider } from './HomeSlider';
-import Link from 'next/link';
 import { CgPlayButton } from 'react-icons/cg';
 import Recommendation from './Recommendation';
+import { FaStar } from 'react-icons/fa6';
+import Image from 'next/image';
+import { HomeSlider } from './HomeSlider';
+import Link from 'next/link';
 
 const HomePage = ({ animes }: any) => {
   const [genresBtn, setGenresBtn] = useState(false);
@@ -58,7 +57,7 @@ const HomePage = ({ animes }: any) => {
   }, []);
 
   const handleClick = () => {
-    console.log(genresBtn);
+    // console.log(genresBtn);
     setGenresBtn(!genresBtn);
   };
 

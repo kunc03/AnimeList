@@ -12,20 +12,30 @@ const ubuntu = Ubuntu({ subsets: ['latin'], weight: '300' });
 
 const Home = () => {
   const [animes, setAnimes] = useState<Anime[]>([]);
-  const [search, setSearch] = useState<string>('');
+  // const [search, setSearch] = useState<string>('');
 
   const fetchData = async () => {
-    const { data } = await axios.get<Anime[]>('http://localhost:3000/api/animes', {
-      params: {
-        search,
-      },
-    });
-    setAnimes(data);
+    await fetch('http://localhost:3000/api/animes')
+      .then((res) => res.json())
+      .then((result) => setAnimes(result));
   };
 
   useEffect(() => {
     fetchData();
-  }, [search]);
+  }, []);
+
+  // const fetchData = async () => {
+  //   const { data } = await axios.get<Anime[]>('http://localhost:3000/api/animes', {
+  //     params: {
+  //       search,
+  //     },
+  //   });
+  //   setAnimes(data);
+  // };
+
+  // useEffect(() => {
+  //   fetchData();
+  // }, [search]);
 
   console.log(animes);
   return (
